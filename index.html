@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Student Enrollment System">
+  <title>Student Enrollment System</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-content">
+      <div class="brand-icon">SE</div>
+      <div>
+        <h1>Student Enrollment System</h1>
+        <p>Student registration and enrollment portal</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <div class="section-heading">
+        <div>
+          <h2>Student Enrollment Form</h2>
+          <p>Enter the student's information below.</p>
+        </div>
+        <span class="required-note">* Required fields</span>
+      </div>
+
+      <div id="successMessage" class="success-message"
+           role="status" hidden></div>
+
+      <form id="enrollmentForm" novalidate>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="studentId">Student ID *</label>
+            <input type="text" id="studentId" name="studentId"
+                   minlength="5" required placeholder="e.g. 2026-001">
+            <small class="error" id="studentIdError"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="prefix">Prefix</label>
+            <input type="text" id="prefix" name="prefix"
+                   minlength="2" placeholder="e.g. Mr.">
+            <small class="error" id="prefixError"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="firstName">First Name *</label>
+            <input type="text" id="firstName" name="firstName"
+                   minlength="3" required placeholder="First name">
+            <small class="error" id="firstNameError"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="middleName">Middle Name</label>
+            <input type="text" id="middleName" name="middleName"
+                   minlength="2" placeholder="Middle name">
+            <small class="error" id="middleNameError"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="lastName">Last Name *</label>
+            <input type="text" id="lastName" name="lastName"
+                   minlength="2" required placeholder="Last name">
+            <small class="error" id="lastNameError"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="suffix">Suffix</label>
+            <input type="text" id="suffix" name="suffix"
+                   minlength="2" placeholder="e.g. Jr.">
+            <small class="error" id="suffixError"></small>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email"
+                   required placeholder="student@example.com">
+            <small class="error" id="emailError"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="course">Course *</label>
+            <select id="course" name="course" required>
+              <option value="">Select a course</option>
+              <option value="BSIT">BSIT</option>
+              <option value="BSCS">BSCS</option>
+              <option value="BMMA">BMMA</option>
+              <option value="BSAIS">BSAIS</option>
+            </select>
+            <small class="error" id="courseError"></small>
+          </div>
+
+          <div class="form-group" id="majorGroup" hidden>
+            <label for="major">BSIT Major *</label>
+            <select id="major" name="major">
+              <option value="">Select a major</option>
+              <option value="Net Sec">Network Security</option>
+              <option value="Web Tech">Web Technology</option>
+              <option value="ERP">Enterprise Resource Planning (ERP)</option>
+            </select>
+            <small class="error" id="majorError"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="yearLevel">Year Level *</label>
+            <select id="yearLevel" name="yearLevel" required>
+              <option value="">Select year level</option>
+              <option value="1st Year">1st Year</option>
+              <option value="2nd Year">2nd Year</option>
+              <option value="3rd Year">3rd Year</option>
+            </select>
+            <small class="error" id="yearLevelError"></small>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="reset" class="btn btn-secondary">
+            Clear Form
+          </button>
+          <button type="submit" class="btn btn-primary">
+            Submit Enrollment
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card records-section">
+      <div class="section-heading">
+        <div>
+          <h2>Enrolled Students</h2>
+          <p>Submitted student enrollment records.</p>
+        </div>
+        <span class="record-count" id="recordCount">0 records</span>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Student ID</th>
+              <th>Full Name</th>
+              <th>Email</th>
+              <th>Course</th>
+              <th>Major</th>
+              <th>Year Level</th>
+            </tr>
+          </thead>
+          <tbody id="studentTableBody">
+            <tr id="emptyRow">
+              <td colspan="6" class="empty-state">
+                No student records yet. Submit a form to get started.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>
+      <p>Student Enrollment System &copy; 2026</p>
+    </footer>
+  </main>
+</body>
+</html>
